@@ -30,12 +30,12 @@ class Rect{
 
 class Grid{
     drawGrid(){
-        for (let x = 0; x < WIDTH/grid_size; x++){
-            let xline = new Line(x*grid_size,0,x*grid_size,HEIGHT);
-            xline.drawLine();
-            for (let y = 0; y < HEIGHT/grid_size; y++){
-                let yline = new Line(0,y*grid_size,WIDTH,y*grid_size)
-                yline.drawLine(2, {r:0,g:233,b:34});
+        for (let x = 0; x < floor(WIDTH/GRIDSIZE); x++){
+            let xline = new Line(x*GRIDSIZE,0,x*GRIDSIZE,HEIGHT);
+            xline.drawLine(1,{r:200,g:200,b:200});
+            for (let y = 0; y < floor(HEIGHT/GRIDSIZE); y++){
+                let yline = new Line(0,y*GRIDSIZE,WIDTH,y*GRIDSIZE)
+                yline.drawLine(1,{r:200,g:200,b:200});
             }
         }        
     }
