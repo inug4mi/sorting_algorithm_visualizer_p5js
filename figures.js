@@ -24,7 +24,7 @@ class Rect{
         fill(color.r, color.g, color.b);
         stroke(strokeColor.r, strokeColor.g, strokeColor.b);
         strokeWeight(weight);
-        rect(this.x0, this.y0, this.x1, this.y1);
+        rect(this.x0, this.y0, this.width, this.height);
     }
 }
 

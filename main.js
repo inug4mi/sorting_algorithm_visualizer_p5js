@@ -7,12 +7,14 @@ function setup(){
     frameRate(60);
     grid = new Grid();
     algo = new Algorithms();
+    
 
-    //let button = document.getElementById('changeBgColor');
-    //button.addEventListener('click', changeBgColor);
+    let button = document.getElementById('shuffleValues');
+    button.addEventListener('click', algo.shuffleValues);
 }
 
 function draw(){
     background(backgroundColor);
     grid.drawGrid();
+    algo.drawAlgorithm();
 }

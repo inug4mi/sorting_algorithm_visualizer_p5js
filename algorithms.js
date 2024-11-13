@@ -3,10 +3,19 @@
 class Algorithms{
     constructor(){
         this.values = [];
-        for (let i = 1; i < floor(WIDTH/GRIDSIZE); i++) 
+        for (let i = 1; i <= floor(WIDTH/GRIDSIZE); i++) 
             this.values.push(i);    
         this.shuffleValues();
-        console.log(this.values);
+        
+        this.rects = [];
+        this.createRects();
+    }
+
+    createRects(){
+        for (let i = 0; i < this.values.length; i++){
+            let myRect = new Rect(i*GRIDSIZE, 0, GRIDSIZE, this.values[i]*GRIDSIZE);
+            this.rects.push(myRect);
+        }
     }
 
     shuffleValues() {
@@ -16,6 +25,12 @@ class Algorithms{
             
             // swap this.values[i] and this.values[j]
             [this.values[i], this.values[j]] = [this.values[j], this.values[i]];  // Desestructuración
+        }
+    }
+
+    drawAlgorithm(){
+        for (let i = 0; i < this.rects.length; i++){
+            this.rects[i].drawRect(1,{r:255,g:35,b:51},{r:0,g:0,b:0});
         }
     }
 }
