@@ -28,16 +28,26 @@ class Rect{
     }
 }
 
-class Grid{
-    drawGrid(){
-        for (let x = 0; x < floor(WIDTH/GRIDSIZE); x++){
-            let xline = new Line(x*GRIDSIZE,0,x*GRIDSIZE,HEIGHT);
-            xline.drawLine(1,{r:200,g:200,b:200});
-            for (let y = 0; y < floor(HEIGHT/GRIDSIZE); y++){
-                let yline = new Line(0,y*GRIDSIZE,WIDTH,y*GRIDSIZE)
-                yline.drawLine(1,{r:200,g:200,b:200});
+class Grid {
+    constructor() {
+        this.gridGraphics = createGraphics(WIDTH, HEIGHT); // Crear un buffer
+        this.drawStaticGrid(); // Dibujar la cuadrícula una vez
+    }
+    
+    drawStaticGrid() {
+        this.gridGraphics.clear();
+        this.gridGraphics.stroke(200);
+        this.gridGraphics.strokeWeight(1);
+        for (let x = 0; x < floor(WIDTH / GRIDSIZE); x++) {
+            this.gridGraphics.line(x * GRIDSIZE, 0, x * GRIDSIZE, HEIGHT);
+            for (let y = 0; y < floor(HEIGHT / GRIDSIZE); y++) {
+                this.gridGraphics.line(0, y * GRIDSIZE, WIDTH, y * GRIDSIZE);
             }
-        }        
+        }
+    }
+
+    drawGrid() {
+        image(this.gridGraphics, 0, 0); // Mostrar la cuadrícula pre-renderizada
     }
 }
 
